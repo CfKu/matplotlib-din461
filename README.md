@@ -30,6 +30,17 @@ plt.show()
 
 ![DIN461 plotting example](https://dl.dropboxusercontent.com/s/2ss8dc36eho96od/matplotlib-din461-example.png?dl=0)
 
+## Parameters of apply_din461
+
+```python
+def apply_din461(ax, x_unit_name, y_unit_name, x_left_to_right=True, y_bottom_to_top=True):
+```
+* ax (matplotlib ax): Axis to be motified
+* x_unit_name (unicode): Name of the unit in x direction
+* y_unit_name (unicode): Name of the unit in y direction
+* x_left_to_right (bool): If True, arrow from left to right
+* y_bottom_to_top (bool): If True, arrow bottom to top
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
