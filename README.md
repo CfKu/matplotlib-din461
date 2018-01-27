@@ -5,12 +5,12 @@ DIN461 is a German standard: <br />
 * https://www.beuth.de/de/norm/din-461/710844
 * https://de.wikipedia.org/wiki/DIN_461
 
-## Minimal example
+## Minimal example (tested in Python 2.x)
 
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib-din461 import apply_din461
+from matplotlib_din461 import apply_din461
 
 t = np.arange(0.0, 1.0 + 0.01, 0.01)
 s = np.cos(4 * np.pi * t) + 2
