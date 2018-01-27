@@ -43,9 +43,9 @@ def apply_din461(ax, x_unit_name, y_unit_name,
     @type  x_unit_name: unicode
     @param y_unit_name: Name of the unit in y direction
     @type  y_unit_name: unicode
-    @param x_left_to_right: If Ture, arrow from left to right
+    @param x_left_to_right: If True, arrow from left to right
     @type  x_left_to_right: bool
-    @param y_bottom_to_top: If Ture, arrow bottom to top
+    @param y_bottom_to_top: If True, arrow bottom to top
     @type  y_bottom_to_top: bool
     """
     # updates can only be applied if plot has been plotted/updated
