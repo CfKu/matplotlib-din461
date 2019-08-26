@@ -28,7 +28,7 @@ plt.show()
 
 ### Result
 
-![DIN461 plotting example](https://dl.dropboxusercontent.com/s/2ss8dc36eho96od/matplotlib-din461-example.png?dl=0)
+![matplotlib-din461-example](https://user-images.githubusercontent.com/8809455/63670705-cd71d500-c7dd-11e9-9cc7-0d98b5e5ee32.png)
 
 ## Parameters of apply_din461
 
