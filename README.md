@@ -5,7 +5,7 @@ DIN461 is a German standard: <br />
 * https://www.beuth.de/de/norm/din-461/710844
 * https://de.wikipedia.org/wiki/DIN_461
 
-## Minimal example (tested in Python 2.x)
+## Minimal example (tested in Python 3.x)
 
 ```python
 import matplotlib.pyplot as plt
@@ -16,8 +16,8 @@ t = np.arange(0.0, 1.0 + 0.01, 0.01)
 s = np.cos(4 * np.pi * t) + 2
 
 plt.plot(t, s)
-plt.xlabel("Time $t$", fontsize=25)
-plt.ylabel("Voltage $U$", fontsize=20)
+plt.xlabel("Time $t$")
+plt.ylabel("Voltage $U$")
 
 ax = plt.gca()
 apply_din461(ax, "s", "V")
@@ -27,8 +27,8 @@ plt.show()
 ```
 
 ### Result
+![Figure_1](https://user-images.githubusercontent.com/106767099/172333364-c999b77e-2ddd-4a3f-975b-438c4810a8d2.png)
 
-![matplotlib-din461-example](https://user-images.githubusercontent.com/8809455/63670705-cd71d500-c7dd-11e9-9cc7-0d98b5e5ee32.png)
 
 ## Parameters of apply_din461
 
