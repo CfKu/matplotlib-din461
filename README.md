@@ -27,7 +27,7 @@ plt.show()
 ```
 
 ### Result
-![Figure_1](https://user-images.githubusercontent.com/106767099/172333364-c999b77e-2ddd-4a3f-975b-438c4810a8d2.png)
+![matplotlib-din461-example](https://user-images.githubusercontent.com/8809455/174426531-b887c7e7-7f26-4451-97dc-eb9e9e4505c4.png)
 
 
 ## Parameters of apply_din461

@@ -29,8 +29,9 @@ import matplotlib.ticker as mpl_ticker
 import numpy as np
 
 
-def apply_din461(ax, x_unit_name, y_unit_name,
-                 x_left_to_right=True, y_bottom_to_top=True):
+def apply_din461(
+    ax, x_unit_name, y_unit_name, x_left_to_right=True, y_bottom_to_top=True
+):
     """
     Applies the DIN 461 for units and labels
 
@@ -54,7 +55,7 @@ def apply_din461(ax, x_unit_name, y_unit_name,
         label_text += "  $\longrightarrow$\t\t"
     else:
         label_text = "$\longleftarrow$ " + label_text
-    ax.set_xlabel(label_text,loc='right')
+    ax.set_xlabel(label_text, loc="right")
 
     # add arrow to y axis label
     label_text = ax.yaxis.get_label().get_text()
@@ -62,17 +63,18 @@ def apply_din461(ax, x_unit_name, y_unit_name,
         label_text += "  $\longrightarrow$\t\t"
     else:
         label_text = "$\longleftarrow$ " + label_text
-    ax.set_ylabel(label_text, loc='top')
+    ax.set_ylabel(label_text, loc="top")
 
     # change the x unit name
     def x_tick_formatter(x, pos):
         visible_labels = [t for t in ax.get_xticklabels() if t.get_visible()]
         x_number_of_ticks = len(visible_labels)
-        if pos == x_number_of_ticks - 3: #empirically determined, bypasses prune
+        if pos == x_number_of_ticks - 3:  # empirically determined, bypasses prune
             return x_unit_name
         else:
-            return '{:g}'.format(float('{:.2g}'.format(x)))
-    #ax.xaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
+            return "{:g}".format(float("{:.2g}".format(x)))
+
+    # ax.xaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
     ax.xaxis.set_major_formatter(mpl_ticker.FuncFormatter(x_tick_formatter))
 
     # change the y unit name
@@ -82,10 +84,10 @@ def apply_din461(ax, x_unit_name, y_unit_name,
         if pos == y_number_of_ticks - 3:
             return y_unit_name
         else:
-            return '{:g}'.format(float('{:.2g}'.format(x)))
-    #ax.yaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
+            return "{:g}".format(float("{:.2g}".format(x)))
+
+    # ax.yaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
     ax.yaxis.set_major_formatter(mpl_ticker.FuncFormatter(y_tick_formatter))
-    
 
 
 if __name__ == "__main__":
