@@ -24,9 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-# Switch to Python3 unicode literals and print() function
-from __future__ import unicode_literals, print_function
-
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mpl_ticker
 import numpy as np
@@ -54,50 +51,51 @@ def apply_din461(ax, x_unit_name, y_unit_name,
     # add arrow to x axis label
     label_text = ax.xaxis.get_label().get_text()
     if x_left_to_right:
-        label_text += " $\longrightarrow$"
+        label_text += "  $\longrightarrow$\t\t"
     else:
         label_text = "$\longleftarrow$ " + label_text
-    ax.set_xlabel(label_text)
+    ax.set_xlabel(label_text,loc='right')
 
     # add arrow to y axis label
     label_text = ax.yaxis.get_label().get_text()
     if y_bottom_to_top:
-        label_text += " $\longrightarrow$"
+        label_text += "  $\longrightarrow$\t\t"
     else:
         label_text = "$\longleftarrow$ " + label_text
-    ax.set_ylabel(label_text)
+    ax.set_ylabel(label_text, loc='top')
 
     # change the x unit name
     def x_tick_formatter(x, pos):
         visible_labels = [t for t in ax.get_xticklabels() if t.get_visible()]
         x_number_of_ticks = len(visible_labels)
-        if pos == x_number_of_ticks - 2:
+        if pos == x_number_of_ticks - 3: #empirically determined, bypasses prune
             return x_unit_name
         else:
-            return unicode(x)
-    ax.xaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
+            return '{:g}'.format(float('{:.2g}'.format(x)))
+    #ax.xaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
     ax.xaxis.set_major_formatter(mpl_ticker.FuncFormatter(x_tick_formatter))
 
     # change the y unit name
     def y_tick_formatter(x, pos):
         visible_labels = [t for t in ax.get_yticklabels() if t.get_visible()]
         y_number_of_ticks = len(visible_labels)
-        if pos == y_number_of_ticks - 2:
+        if pos == y_number_of_ticks - 3:
             return y_unit_name
         else:
-            return unicode(x)
-    ax.yaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
+            return '{:g}'.format(float('{:.2g}'.format(x)))
+    #ax.yaxis.set_major_locator(mpl_ticker.MaxNLocator(prune="upper"))
     ax.yaxis.set_major_formatter(mpl_ticker.FuncFormatter(y_tick_formatter))
+    
 
 
 if __name__ == "__main__":
-    # Minimal example (tested in Python 2.x)
+    # Minimal example (tested in Python 3.x)
     t = np.arange(0.0, 1.0 + 0.01, 0.01)
     s = np.cos(4 * np.pi * t) + 2
 
     plt.plot(t, s)
-    plt.xlabel("Time $t$", fontsize=25)
-    plt.ylabel("Voltage $U$", fontsize=20)
+    plt.xlabel("Time $t$")
+    plt.ylabel("Voltage $U$")
 
     ax = plt.gca()
     apply_din461(ax, "s", "V")
