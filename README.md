@@ -41,7 +41,6 @@ def apply_din461(ax, x_unit_name, y_unit_name, x_left_to_right=True, y_bottom_to
 * x_left_to_right (bool): If True, arrow from left to right
 * y_bottom_to_top (bool): If True, arrow bottom to top
 
+
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This project is licensed under the terms of the MIT license - see the [LICENSE](LICENSE) file for details.
